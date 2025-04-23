@@ -1,0 +1,388 @@
+# добавляем organizationalUnit Users
+DN: OU=CTR-HUB,DC=ctr-hub,DC=local
+OU: CTR-HUB
+objectClass: top
+objectClass: organizationalUnit
+
+DN: OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+OU: Russia
+objectClass: top
+objectClass: organizationalUnit
+
+DN: OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+OU: Moscow
+objectClass: top
+objectClass: organizationalUnit
+
+DN: OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+OU: Users
+objectClass: top
+objectClass: organizationalUnit
+
+DN: OU=Groups,DC=ctr-hub,DC=local
+OU: Groups
+objectClass: top
+objectClass: organizationalUnit
+
+DN: OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+OU: app_users_group
+objectClass: top
+objectClass: organizationalUnit
+
+# добавляем группы пользователей
+DN: CN=nova_plant_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+objectClass: top
+objectClass: posixGroup
+gidnumber: 500
+CN: nova_plant_users
+
+DN: CN=rvd_nova_quality_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+objectClass: top
+objectClass: posixGroup
+gidnumber: 501
+CN: rvd_nova_quality_users
+
+# добавляем пользователей в OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+DN: CN=Rasul Ramazanov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+CN: Rasul Ramazanov
+CanonicalName: ctr-hub.local/CTR-HUB/Russia/Moscow/Users/Rasul Ramazanov
+ObjectGUID: 5f68ad78-3b95-4b9a-a45f-483c25139a4d
+UserPrincipalName: Rasul.Ramazanov@ctr-hub.local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: user
+#
+DisplayName: Rasul Ramazanov
+Name: Rasul Ramazanov
+GivenName: Rasul
+SN: Ramazanov
+OtherName: Ramazanov Rasul
+Initials: R.R.
+telephoneNumber: +7 495 221 74 01
+HomePhone: 278 38 58
+MobilePhone: 8 800 3000 600
+#
+Country: Russia
+State: Moscow
+City: Moscow
+StreetAddress: Leninskiy prospect, 15A
+PostalCode: 111544
+#
+Company: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НОВА ЭНЕРДЖИС"
+Organization: Ctr-Hub
+Division: Home division
+Department: IT
+Office: Home office
+Manager: cn=Rasul Ramazanov,ou=Users,ou=Moscow,ou=Russia,ou=CTR-HUB,dc=ctr-hub,dc=local
+EmployeeID: 777
+EmployeeNumber: 666
+mail: Rasul.Ramazanov@ctr-hub.net
+mailNickname: Rasul.Ramazanov
+SamAccountName: Rasul.Ramazanov
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+OfficePhone: +7 495 221 74 01
+ipPhone: 1178
+Title: Chief Expert, Business Analyst
+userAccountControl: 512
+Enabled: True
+#
+MemberOf: CN=nova_plant_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+MemberOf: CN=rvd_nova_quality_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+
+DN: CN=Andrey Syzranov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+CN: Andrey Syzranov
+CanonicalName: ctr-hub.local/CTR-HUB/Russia/Moscow/Users/Andrey Syzranov
+ObjectGUID: f85a0408-3d8a-4694-9dea-22ea838dc45d
+UserPrincipalName: Andrey.Syzranov@ctr-hub.local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: user
+#
+DisplayName: Andrey Syzranov
+Name: Andrey Syzranov
+GivenName: Andrey
+SN: Syzranov
+OtherName: Syzranov Andrey
+Initials: A.S.
+telephoneNumber: +7 495 221 74 01
+HomePhone: 278 38 58
+MobilePhone: 8 800 3000 600
+#
+Country: Russia
+State: Moscow
+City: Moscow
+StreetAddress: Leninskiy prospect, 15A
+PostalCode: 111544
+#
+Company: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НОВА ЭНЕРДЖИС"
+Organization: Ctr-Hub
+Division: Home division
+Department: IT
+Office: Home office
+Manager: cn=Rasul Ramazanov,ou=Users,ou=Moscow,ou=Russia,ou=CTR-HUB,dc=ctr-hub,dc=local
+EmployeeID: 777
+EmployeeNumber: 666
+mail: Andrey.Syzranov@ctr-hub.net
+mailNickname: Andrey.Syzranov
+SamAccountName: Andrey.Syzranov
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+OfficePhone: +7 495 221 74 01
+ipPhone: 1178
+Title: Chief Expert, Business Analyst
+userAccountControl: 512
+Enabled: True
+#
+MemberOf: CN=nova_plant_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+MemberOf: CN=rvd_nova_quality_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+
+DN: CN=Ivan Ivanov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+CN: Ivan Ivanov
+CanonicalName: ctr-hub.local/CTR-HUB/Russia/Moscow/Users/Ivan Ivanov
+ObjectGUID: a0426527-b84c-4c8f-9688-d36a8ce32971
+UserPrincipalName: Ivan.Ivanov@ctr-hub.local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: user
+#
+DisplayName: Ivan Ivanov
+Name: Ivan Ivanov
+GivenName: Ivan
+SN: Ivanov
+OtherName: Ivanov Ivan
+Initials: A.S.
+telephoneNumber: +7 495 221 74 01
+HomePhone: 278 38 58
+MobilePhone: 8 800 3000 600
+#
+Country: Russia
+State: Moscow
+City: Moscow
+StreetAddress: Leninskiy prospect, 15A
+PostalCode: 111544
+#
+Company: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НОВА ЭНЕРДЖИС"
+Organization: Ctr-Hub
+Division: Home division
+Department: IT
+Office: Home office
+Manager: CN=Andrey Syzranov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+EmployeeID: 777
+EmployeeNumber: 666
+mail: Ivan.Ivanov@ctr-hub.net
+mailNickname: Ivan.Ivanov
+SamAccountName: Ivan.Ivanov
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+OfficePhone: +7 495 221 74 01
+ipPhone: 1178
+Title: Chief Expert, Business Analyst
+userAccountControl: 512
+Enabled: True
+#
+MemberOf: CN=nova_plant_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+
+DN: CN=Petr Petrov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+CN: Petr Petrov
+CanonicalName: ctr-hub.local/CTR-HUB/Russia/Moscow/Users/Petr Petrov
+ObjectGUID: 94f5dccd-bf34-4791-a43d-f88b5b51868f
+UserPrincipalName: Petr.Petrov@ctr-hub.local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: user
+#
+DisplayName: Petr Petrov
+Name: Petr Petrov
+GivenName: Petr
+SN: Petrov
+OtherName: Petrov Petr
+Initials: A.S.
+telephoneNumber: +7 495 221 74 01
+HomePhone: 278 38 58
+MobilePhone: 8 800 3000 600
+#
+Country: Russia
+State: Moscow
+City: Moscow
+StreetAddress: Leninskiy prospect, 15A
+PostalCode: 111544
+#
+Company: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НОВА ЭНЕРДЖИС"
+Organization: Ctr-Hub
+Division: Home division
+Department: IT
+Office: Home office
+Manager: CN=Andrey Syzranov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+EmployeeID: 777
+EmployeeNumber: 666
+mail: Petr.Petrov@ctr-hub.net
+mailNickname: Petr.Petrov
+SamAccountName: Petr.Petrov
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+OfficePhone: +7 495 221 74 01
+ipPhone: 1178
+Title: Chief Expert, Business Analyst
+userAccountControl: 512
+Enabled: True
+#
+MemberOf: CN=rvd_nova_quality_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+
+DN: CN=Fedor Fedorov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+CN: Fedor Fedorov
+CanonicalName: ctr-hub.local/CTR-HUB/Russia/Moscow/Users/Fedor Fedorov
+ObjectGUID: 286b14f5-96bf-4716-b376-2085ece2b183
+UserPrincipalName: Fedor.Fedorov@ctr-hub.local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: user
+#
+DisplayName: Fedor Fedorov
+Name: Fedor Fedorov
+GivenName: Fedor
+SN: Fedorov
+OtherName: Fedorov Fedor
+Initials: A.S.
+telephoneNumber: +7 495 221 74 01
+HomePhone: 278 38 58
+MobilePhone: 8 800 3000 600
+#
+Country: Russia
+State: Moscow
+City: Moscow
+StreetAddress: Leninskiy prospect, 15A
+PostalCode: 111544
+#
+Company: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НОВА ЭНЕРДЖИС"
+Organization: Ctr-Hub
+Division: Home division
+Department: IT
+Office: Home office
+Manager: CN=Andrey Syzranov,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+EmployeeID: 777
+EmployeeNumber: 666
+mail: Fedor.Fedorov@ctr-hub.net
+mailNickname: Fedor.Fedorov
+SamAccountName: Fedor.Fedorov
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+OfficePhone: +7 495 221 74 01
+ipPhone: 1178
+Title: Chief Expert, Business Analyst
+userAccountControl: 512
+Enabled: True
+#
+MemberOf: CN=rvd_nova_quality_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+
+#добавляем organizationalUnit Terminated
+DN: OU=Service,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+OU: Service
+objectClass: top
+objectClass: organizationalUnit
+
+DN: OU=Terminated,OU=Service,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+OU: Terminated
+objectClass: top
+objectClass: organizationalUnit
+
+# добавляем пользователей в OU=Terminated,OU=Service,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+DN: CN=Alikhan Baltabay,OU=Terminated,OU=Service,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+CN: Alikhan Baltabay
+CanonicalName: ctr-hub.local/CTR-HUB/Russia/Moscow/Service/Terminated/Alikhan Baltabay
+ObjectGUID: b33c8d6b-0578-49e3-bd7e-71ffa5c7cab1
+UserPrincipalName: Alikhan.Baltabay@ctr-hub.local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: user
+#
+DisplayName: Alikhan Baltabay
+Name: Alikhan Baltabay
+GivenName: Alikhan
+SN: Baltabay
+OtherName: Baltabay Alikhan
+Initials: A.B.
+telephoneNumber: +7 495 221 74 01
+HomePhone: 278 38 58
+MobilePhone: 8 800 3000 600
+#
+Country: Russia
+State: Moscow
+City: Moscow
+StreetAddress: Leninskiy prospect, 15A
+PostalCode: 111544
+#
+Company: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НОВА ЭНЕРДЖИС"
+Organization: Ctr-Hub
+Division: Home division
+Department: IT
+Office: Home office
+Manager: cn=Rasul Ramazanov,ou=Users,ou=Moscow,ou=Russia,ou=CTR-HUB,dc=ctr-hub,dc=local
+EmployeeID: 123456
+EmployeeNumber: 654321
+mail: Alikhan.Baltabay@ctr-hub.net
+mailNickname: Alikhan.Baltabay
+SamAccountName: Alikhan.Baltabay
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+OfficePhone: +7 495 221 74 01
+ipPhone: 1226
+Title: Engineer
+userAccountControl: 514
+Enabled: False
+#
+MemberOf: CN=rvd_nova_quality_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+
+DN: CN=Almir Almiev,OU=Users,OU=Moscow,OU=Russia,OU=CTR-HUB,DC=ctr-hub,DC=local
+CN: Almir Almiev
+CanonicalName: ctr-hub.local/CTR-HUB/Russia/Moscow/Users/Almir Almiev
+ObjectGUID: fbee3b01-5c60-444b-9d73-ac7feb752756
+UserPrincipalName: Almir.Almiev@ctr-hub.local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: user
+#
+DisplayName: Almir Almiev
+Name: Almir Almiev
+GivenName: Almir
+SN: Almiev
+OtherName: Almiev Almir
+Initials: A.S.
+telephoneNumber: +7 495 221 74 01
+HomePhone: 278 38 58
+MobilePhone: 8 800 3000 600
+#
+Country: Russia
+State: Moscow
+City: Moscow
+StreetAddress: Leninskiy prospect, 15A
+PostalCode: 111544
+#
+Company: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НОВА ЭНЕРДЖИС"
+Organization: Ctr-Hub
+Division: Home division
+Department: IT
+Office: Home office
+Manager: cn=Rasul Ramazanov,ou=Users,ou=Moscow,ou=Russia,ou=CTR-HUB,dc=ctr-hub,dc=local
+EmployeeID: 777
+EmployeeNumber: 666
+mail: Almir.Almiev@ctr-hub.net
+mailNickname: Almir.Almiev
+SamAccountName: Almir.Almiev
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+OfficePhone: +7 495 221 74 01
+ipPhone: 1178
+Title: Chief Expert, Business Analyst
+userAccountControl: 512
+Enabled: True
+#
+MemberOf: CN=nova_plant_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local
+MemberOf: CN=rvd_nova_quality_users,OU=app_users_group,OU=Groups,DC=ctr-hub,DC=local

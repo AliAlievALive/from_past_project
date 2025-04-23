@@ -1,0 +1,84 @@
+x-service-template: &service-template
+  restart: always
+
+services:
+  postgres:
+    <<: *service-template
+    image: postgres:15.5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: past-local
+      POSTGRES_MULTIPLE_SCHEMAS: >
+        "messages",
+        "id"
+    volumes:
+      - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+
+  open-ldap:
+    <<: *service-template
+    image: osixia/openldap:latest
+    hostname: openldap
+    command: --copy-service
+    environment:
+      LDAP_LOG_LEVEL: "256"
+      LDAP_ORGANISATION: "ctr-hub"
+      LDAP_DOMAIN: "ctr-hub.local"
+      LDAP_BASE_DN: ""
+      LDAP_ADMIN_USERNAME: "admin"
+      LDAP_ADMIN_PASSWORD: "password"
+      LDAP_CONFIG_PASSWORD: "config_pass"
+      LDAP_RFC2307BIS_SCHEMA: "false"
+      LDAP_TLS_CRT_FILENAME: "server.crt"
+      LDAP_TLS_KEY_FILENAME: "server.key"
+      LDAP_TLS_CA_CRT_FILENAME: "ctr-hub.local.ca.crt"
+      LDAP_READONLY_USER: "true"
+    volumes:
+      - ./ldap/ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+      - ./ldap/ctr-hub.schema:/container/service/slapd/assets/config/bootstrap/schema/ctr-hub.schema
+    ports:
+      - 5389:389
+
+  php-ldap-admin:
+    <<: *service-template
+    image: osixia/phpldapadmin:latest
+    hostname: phpldapadmin
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: openldap
+      PHPLDAPADMIN_HTTPS: false
+    ports:
+      - 8082:80
+
+  keycloak:
+    <<: *service-template
+    image: quay.io/keycloak/keycloak:23.0.1
+    command:
+      - start-dev
+      - --import-realm
+      - --features=admin-fine-grained-authz
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+    volumes:
+      - ./keycloak/realms/realm-export.json:/opt/keycloak/data/import/realm.json
+    ports:
+      - 8080:8080
+
+  minio:
+    <<: *service-template
+    image: bitnami/minio:latest
+    network_mode: bridge
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+      MINIO_DEFAULT_BUCKETS: "referential,tagregister"
+    volumes:
+      - minio-storage:/bitnami/minio/data
+    ports:
+      - 9000:9000
+      - 9001:9001
+
+volumes:
+  minio-storage:
