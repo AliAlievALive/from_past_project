@@ -15,7 +15,7 @@ services:
     volumes:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
-      - 5432:5432
+      - 5433:5432
 
   open-ldap:
     <<: *service-template
@@ -39,7 +39,7 @@ services:
       - ./ldap/ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
       - ./ldap/ctr-hub.schema:/container/service/slapd/assets/config/bootstrap/schema/ctr-hub.schema
     ports:
-      - 5389:389
+      - 5390:389
 
   php-ldap-admin:
     <<: *service-template
@@ -49,7 +49,7 @@ services:
       PHPLDAPADMIN_LDAP_HOSTS: openldap
       PHPLDAPADMIN_HTTPS: false
     ports:
-      - 8082:80
+      - 8092:80
 
   keycloak:
     <<: *service-template
@@ -64,7 +64,7 @@ services:
     volumes:
       - ./keycloak/realms/realm-export.json:/opt/keycloak/data/import/realm.json
     ports:
-      - 8080:8080
+      - 8090:8080
 
   minio:
     <<: *service-template
@@ -77,8 +77,8 @@ services:
     volumes:
       - minio-storage:/bitnami/minio/data
     ports:
-      - 9000:9000
-      - 9001:9001
+      - 9010:9000
+      - 9011:9001
 
 volumes:
   minio-storage:
