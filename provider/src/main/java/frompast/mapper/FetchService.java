@@ -11,15 +11,15 @@ import java.net.http.HttpResponse;
 import java.util.UUID;
 
 public class FetchService {
-    private static final String PROTOCOL = "http"; //System.getenv("ID_SERVICE_PROTOCOL");
-    private static final String ADDRESS = "host.docker.internal"; //System.getenv("ID_SERVICE_ADDRESS");
-    private static final String PORT = "8061"; //System.getenv("ID_SERVICE_PORT");
+    private static final String PROTOCOL = "http";
+    private static final String ADDRESS = "host.docker.internal";
+    private static final String PORT = "8061";
     private static final Logger log = LoggerFactory.getLogger(FetchService.class);
 
     private FetchService() {
     }
 
-    public static String userLoged(UUID userId, String accessToken) {
+    public static void userLoged(UUID userId, String accessToken) {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             String url = String.format("%s://%s:%s/users/guid?guid=%s", PROTOCOL, ADDRESS, PORT, userId);
@@ -28,6 +28,7 @@ public class FetchService {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
                     .header("Authorization", "Bearer " + accessToken)
+                    .POST(HttpRequest.BodyPublishers.noBody())
                     .build();
             log.info("request {}", request);
             log.info("request header {}", request.headers());
@@ -36,13 +37,12 @@ public class FetchService {
             log.info("status code {}", response.statusCode());
 
             if (response.statusCode() == 200) {
-                return response.body();
+                response.body();
             } else {
                 log.info("Failed to fetch roles. Status code: {}", response.statusCode());
             }
         } catch (IOException | InterruptedException e) {
             log.error("Error fetching roles: {}", e.getMessage());
         }
-        return "";
     }
 }
