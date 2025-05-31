@@ -1,4 +1,4 @@
-package plant.mapper.dto;
+package frompast.mapper.dto;
 
 public record UserApplicationPermissionDto(Long id,
 

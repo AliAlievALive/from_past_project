@@ -1,4 +1,4 @@
-package plant.mapper.dto;
+package frompast.mapper.dto;
 
 import java.util.UUID;
 
