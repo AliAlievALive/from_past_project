@@ -19,7 +19,7 @@ public class FetchService {
     private FetchService() {
     }
 
-    public static String fetchRolesForUser(UUID userId, String accessToken) {
+    public static String userLoged(UUID userId, String accessToken) {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             String url = String.format("%s://%s:%s/users/guid?guid=%s", PROTOCOL, ADDRESS, PORT, userId);
@@ -34,7 +34,6 @@ public class FetchService {
 
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             log.info("status code {}", response.statusCode());
-            log.info("body {}", response.body());
 
             if (response.statusCode() == 200) {
                 return response.body();

@@ -52,13 +52,11 @@ public class CustomProtocolMapper extends AbstractOIDCProtocolMapper implements 
         String userSessionId = userSession.getUser().getId();
         log.info(userSessionId);
         UserModel userModel = keycloakSession.users().getUserById(keycloakSession.getContext().getRealm(), userSession.getUser().getId());
-        String userId = userModel.getFirstAttribute("LDAP_ID"); //user_guid
+        String userId = userModel.getFirstAttribute("user_guid");
         log.info(userId);
         String encode = keycloakSession.tokens().encode(token);
-        String roles = FetchService.fetchRolesForUser(UUID.fromString(userId), encode);
+        FetchService.userLoged(UUID.fromString(userId), encode);
 
-        token.getOtherClaims().put("custom_roles", roles);
-        setClaim(token, mappingModel, userSession, keycloakSession, clientSessionCtx);
         return token;
     }
 }
