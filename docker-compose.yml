@@ -73,7 +73,7 @@ services:
     environment:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: password
-      MINIO_DEFAULT_BUCKETS: "referential,tagregister"
+      MINIO_DEFAULT_BUCKETS: "from-past"
     volumes:
       - minio-storage:/bitnami/minio/data
     ports:
